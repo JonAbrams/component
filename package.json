@@ -1,0 +1,14 @@
+{
+  "name": "component",
+  "version": "1.0.0",
+  "description": "A very simple library for connecting your HTML with your JavaScript.",
+  "main": "component.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jon Abrams",
+  "license": "ISC"
+}

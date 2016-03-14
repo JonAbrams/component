@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Modal Example</title>
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      background: white;
+      border: solid 1px;
+      width: 400px;
+      height: 300px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div data-component='modal'>
+    <button data-piece='modalButton'>
+      Show modal
+    </button>
+    <div class='modal' data-piece='modalContainer'>
+      <div class='modal-close' data-piece="modalClose">&times;</div>
+      <p>This is a modal!</p>
+    </div>
+  </div>
+  <script>
+    component('modal', {
+      pieces: ['modalContainer', 'modalButton', 'modalClose'],
+      events: {
+        modalButton: {
+          click: 'showModal'
+        },
+        modalClose: {
+          click: 'hideModal'
+        }
+      },
+      init: function () {
+        console.log('init');
+      },
+      showModal: function (e) {
+        this.modalContainer.style.display = 'block';
+      },
+      hideModal: function (e) {
+        this.modalContainer.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
