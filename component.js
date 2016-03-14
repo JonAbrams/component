@@ -16,7 +16,7 @@
 
     /* Register pieces */
     if (Array.isArray(options.pieces)) {
-      options.pieces.forEach(addPiece.bind(this, el));
+      options.pieces.forEach(addPieceToComponent.bind(this, el));
     }
 
     /* Add event listeners */
@@ -30,7 +30,7 @@
     }
   }
 
-  function addPiece (el, piece) {
+  function addPieceToComponent (el, piece) {
     this[piece] = el.querySelector('[data-piece=' + piece + ']');
     if (jQuery) this['$' + piece] = jQuery(this[piece]);
   }
@@ -55,4 +55,4 @@
   } else {
     this.component = component;
   }
-})((typeof jQuery !== 'undefined') ? jQuery : null);
+})(window.jQuery);
