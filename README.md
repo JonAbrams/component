@@ -1,5 +1,7 @@
 # PiecefulJS
 
+[![Build Status](https://travis-ci.org/JonAbrams/pieceful.svg?branch=master)](https://travis-ci.org/JonAbrams/pieceful)
+
 A very simple library for connecting your HTML with your JavaScript.
 
 When Backbone, Angular, and React are overkill, add a tad of structure to your code using components, made up of pieces.
