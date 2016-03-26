@@ -2,17 +2,12 @@
   function Component (name, el, options) {
     var self = this;
     this.name = name;
-    this.el = el;
+    this.root = el;
 
     /* copy options' stuff to the new component */
     Object.keys(options).forEach(function (key) {
       self[key] = options[key];
     });
-
-    /* Schedule init to run, if it exists */
-    if (typeof options.init === 'function') {
-      setTimeout(options.init.bind(options), 0);
-    }
 
     /* Register pieces */
     if (Array.isArray(options.pieces)) {
@@ -28,6 +23,8 @@
         });
       });
     }
+
+    if (typeof this.init === 'function') this.init();
   }
 
   function addPieceToComponent (el, piece) {
@@ -51,8 +48,10 @@
   }
 
   if (typeof module !== 'undefined' && module.exports) {
+    // Likely running in Node.js
     module.exports = component;
   } else {
+    // If there's no module system, bind to the global object (e.g. window)
     this.component = component;
   }
 })(window.jQuery);
