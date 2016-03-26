@@ -15,5 +15,5 @@
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5"
   },
-  "repository": "https://github.com/JonAbrams/component"
+  "repository": "https://github.com/JonAbrams/pieceful"
 }
