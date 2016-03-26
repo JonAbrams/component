@@ -10,7 +10,7 @@ beforeEach(function (done) {
   jsdom.env(modalFile, [], function (err, window) {
     global.window = window;
     global.document = window.document;
-    component = require('../component')
+    component = require('../pieceful')
     done();
   });
 });

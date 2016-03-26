@@ -1,18 +1,18 @@
-# ComponentJS
+# PiecefulJS
 
 A very simple library for connecting your HTML with your JavaScript.
 
-When Backbone, Angular, and React are overkill, add a tad of structure to your code using components.
+When Backbone, Angular, and React are overkill, add a tad of structure to your code using components, made up of pieces.
 
 Features:
-- Modularize your JS.
-- Add structure to your code.
+- Modularize your JS into components.
+- Add structure by breaking components into "pieces".
 - Easily declare event listeners.
 - Makes use of jQuery if available, but it's not required.
-- No dependencies.
-- Compatible with IE9+.
+- No external dependencies.
+- Compatible with IE9+ and all other modern browsers.
 
-## Example
+## Usage Example
 
 ```html
 <form data-component="terms">
@@ -40,3 +40,13 @@ Features:
   });
 </script>
 ```
+
+## Installation
+
+`npm install pieceful`
+
+Then load `peaceful.js` onto your web site however you like. It provides a single global function: `component`.
+
+## Credits
+
+Created by [Jon Abrams](https://twitter.com/JonathanAbrams)

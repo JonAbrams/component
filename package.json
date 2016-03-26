@@ -1,8 +1,8 @@
 {
-  "name": "component",
+  "name": "pieceful",
   "version": "1.0.0",
   "description": "A very simple library for connecting your HTML with your JavaScript.",
-  "main": "component.js",
+  "main": "pieceful.js",
   "directories": {
     "example": "examples"
   },
