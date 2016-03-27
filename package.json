@@ -1,17 +1,18 @@
 {
   "name": "pieceful",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A very simple library for connecting your HTML with your JavaScript.",
   "main": "pieceful.js",
   "directories": {
     "example": "examples"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha -R nyan"
   },
   "author": "Jon Abrams",
   "license": "ISC",
   "devDependencies": {
+    "jquery": "^2.2.2",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5"
   },

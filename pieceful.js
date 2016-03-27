@@ -3,6 +3,7 @@
     var self = this;
     this.name = name;
     this.root = el;
+    if (jQuery != null) this.$root = jQuery(el);
 
     /* copy options' stuff to the new component */
     Object.keys(options).forEach(function (key) {
@@ -32,18 +33,22 @@
     if (jQuery) this['$' + piece] = jQuery(this[piece]);
   }
 
-  function component (name, options) {
-    var elements = document.querySelectorAll('[data-component=' + name + ']');
-    /* For each element requesting this component */
-    return [].slice.call(elements).map(function (el) {
-      /* Create component */
-      var component = new Component(name, el, options);
+  function component (name, options, callback) {
+    ready(function () {
+      var elements = document.querySelectorAll('[data-component=' + name + ']');
+      /* For each element requesting this component */
+      return [].slice.call(elements).map(function (el) {
+        /* Create component */
+        var component = new Component(name, el, options);
 
-      /* Add component to the element's list of components */
-      if (el.components == null) el.components = [];
-      el.components.push(component);
+        /* Add component to the element's list of components */
+        if (el.components == null) el.components = [];
+        el.components.push(component);
 
-      return component;
+        if (jQuery != null) jQuery(el).data('components', el.components);
+
+        if (typeof callback === 'function') callback(component);
+      });
     });
   }
 
@@ -55,3 +60,11 @@
     this.component = component;
   }
 })(window.jQuery);
+
+function ready (fn) {
+  if (document.readyState != 'loading'){
+    fn();
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
